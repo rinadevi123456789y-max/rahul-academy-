@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahul Academy</title>
+<style>
+:root{--blue:#135bb5;--dark:#0b2d52;--light:#f4f8ff;--gold:#ffbd2e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:#17202a}
+header{background:var(--blue);color:white;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px #0002}
+.nav{max-width:1100px;margin:auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:22px;font-weight:800}.logo span{color:var(--gold)}
+nav{display:flex;gap:14px}nav a{color:#fff;text-decoration:none;font-size:14px}
+.hero{background:linear-gradient(135deg,var(--dark),var(--blue));color:white;text-align:center;padding:65px 18px 70px}
+.hero h1{font-size:42px;margin:0 0 8px}.hero p{font-size:18px;margin:0 auto 25px;max-width:600px}
+.btn{display:inline-block;background:var(--gold);color:#17202a;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:700}
+.search{max-width:650px;margin:-25px auto 0;padding:0 18px;position:relative}
+.search input{width:100%;padding:15px 18px;border:0;border-radius:10px;box-shadow:0 4px 20px #0002;font-size:16px;outline:none}
+section{max-width:1100px;margin:auto;padding:45px 18px}.title{text-align:center;color:var(--dark);margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.card{background:white;border-radius:13px;padding:22px;box-shadow:0 3px 14px #00000010;transition:.2s}
+.card:hover{transform:translateY(-3px)}.card h3{color:var(--blue);margin:8px 0}
+.icon{font-size:30px}.card a{color:var(--blue);font-weight:bold;text-decoration:none}
+.notice{background:#fff7d6;border-left:5px solid var(--gold);padding:16px;border-radius:8px}
+footer{background:var(--dark);color:white;text-align:center;padding:28px 18px}
+.hidden{display:none!important}
+@media(max-width:650px){nav a{font-size:12px}.hero h1{font-size:32px}.hero{padding-top:50px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">📚 <span>Rahul</span> Academy</div>
+    <nav>
+      <a href="#home">Home</a><a href="#classes">Classes</a><a href="#materials">Materials</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <h1>Rahul Academy</h1>
+  <p>Learn smarter. Practice better. Succeed with confidence.</p>
+  <a class="btn" href="#classes">Start Learning</a>
+</section>
+
+<div class="search">
+  <input id="search" type="search" placeholder="🔎 Search classes, subjects or materials..." oninput="searchSite()">
+</div>
+
+<section id="classes">
+  <h2 class="title">📚 Choose Your Class</h2>
+  <div class="grid" id="classGrid">
+    <div class="card searchable"><div class="icon">6️⃣</div><h3>Class 6</h3><p>Study resources and revision.</p><a href="#materials">View Materials →</a></div>
+    <div class="card searchable"><div class="icon">7️⃣</div><h3>Class 7</h3><p>Study resources and revision.</p><a href="#materials">View Materials →</a></div>
+    <div class="card searchable"><div class="icon">8️⃣</div><h3>Class 8</h3><p>Notes, questions and practice.</p><a href="#materials">View Materials →</a></div>
+    <div class="card searchable"><div class="icon">9️⃣</div><h3>Class 9</h3><p>Chapter notes and exam practice.</p><a href="#materials">View Materials →</a></div>
+    <div class="card searchable"><div class="icon">🔟</div><h3>Class 10</h3><p>Revision and exam preparation.</p><a href="#materials">View Materials →</a></div>
+  </div>
+</section>
+
+<section id="materials">
+  <h2 class="title">📖 Study Materials</h2>
+  <div class="grid">
+    <div class="card searchable"><div class="icon">📘</div><h3>Chapter Notes</h3><p>Simple notes for quick revision.</p></div>
+    <div class="card searchable"><div class="icon">📝</div><h3>Important Questions</h3><p>Practice questions for exams.</p></div>
+    <div class="card searchable"><div class="icon">📄</div><h3>Sample Papers</h3><p>Practice papers for better preparation.</p></div>
+    <div class="card searchable"><div class="icon">🎯</div><h3>Exam Preparation</h3><p>Tips and revision resources.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="title">⭐ Welcome to Rahul Academy</h2>
+  <div class="notice"><b>School Project Website:</b> This website is a free educational project. Add your own notes, PDFs, videos and links whenever you are ready.</div>
+</section>
+
+<section id="contact">
+  <h2 class="title">📞 Contact</h2>
+  <div class="card" style="text-align:center">
+    <p>For questions or suggestions, contact your teacher or school.</p>
+    <p><b>Email:</b> yourschool@example.com</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <b>Rahul Academy</b><br>
+  <small>© 2026 Rahul Academy • Free School Project Website</small>
+</footer>
+
+<script>
+function searchSite(){
+  const q=document.getElementById('search').value.toLowerCase().trim();
+  document.querySelectorAll('.searchable').forEach(card=>{
+    card.classList.toggle('hidden',q && !card.innerText.toLowerCase().includes(q));
+  });
+}
+</script>
+</body>
+</html>
